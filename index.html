@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connexion - MARY 1000'S</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="./RemixIcon_Fonts_v4.6.0/fonts/remixicon.css">
+
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+  <div class="bg-white shadow-lg rounded-lg max-w-md mx-auto px-4 py-6 sm:px-6 md:px-8">
+    <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Connexion à MARY 1000'S</h2>
+
+    <form action="" method="POST" id="formLogin" class="space-y-4">
+      <p class="text-center" id="visualizer"></p>
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+        <input type="email" id="email" placeholder="Votre adresse mail" name="email"
+          class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      </div>
+
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-700">Mot de passe</label>
+        <input type="password" id="password" placeholder="****************" name="password"
+          class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 " />
+      </div>
+
+      <div class="flex items-center justify-between">
+        <label class="flex items-center text-sm">
+          <input type="checkbox" class="mr-2" />
+          Se souvenir de moi
+        </label>
+        <a href="#" class="text-sm text-blue-600 hover:underline">Mot de passe oublié ?</a>
+      </div>
+
+      <button type="submit"
+        class="w-full bg-blue-600 text-white px-4 sm:px-6 py-2 text-sm sm:text-base rounded hover:bg-blue-700 w-full">
+        Connexion
+      </button>
+      <p class="text-center">Pas encore eu un compte? <a href="./sign-up.html"
+          class="text-sm text-blue-600 hover:underline">
+          Créer</a>
+      </p>
+    </form>
+  </div>
+  <script src="./ajax/checkcookies.js"></script>
+  <script src="./ajax/login.js"></script>
+</body>
+
+</html>

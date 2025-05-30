@@ -1,0 +1,33 @@
+Amtech Technology Open Source License (ATOSL)
+_____________________________________________
+
+Version 1.0  
+Copyright (c) 2025 Amtech Technology  
+
+1. Permission & Usage  
+This software is open-source and can be used freely for personal, educational, and commercial purposes.  
+
+2. Modification & Contributions  
+- Users are encouraged to suggest improvements and report issues.  
+- Modifications are allowed, and contributions to the project are welcomed.  
+- Any modifications or derivative works must include a reference to the original Amtech Technology project.  
+
+3. Distribution Rights  
+- Users are allowed to redistribute this software freely.  
+- Redistribution must retain this license file and acknowledge Amtech Technology as the original creator.  
+
+4. Attribution  
+- Any public use of this software must include credit to Amtech Technology in documentation, UI, or code comments.  
+
+5. Liability Disclaimer  
+- This software is provided "as is", without any warranty.  
+- Amtech Technology is not responsible for any issues, damages, or data loss caused by using this software.  
+- Users assume all risks associated with using or modifying this software.  
+
+6. Feedback & Community  
+- Users are encouraged to provide feedback and suggestions via the official Amtech Technology communication channels.  
+- Improvements that align with the project’s goals may be integrated into future versions.  
+
+By using this software, you agree to the terms of this license.  
+
+For more details, visit https://www.amtech-co.com or contact us at contact@amtech-co.com.  

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rapports - MARY 1000'S</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="./RemixIcon_Fonts_v4.6.0/fonts/remixicon.css">
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+  <!-- <nav class="bg-white shadow px-6 py-4 flex justify-between items-center">
+    <div class="text-xl font-bold">MARY 1000'S</div>
+    <ul class="flex space-x-6">
+      <li><a href="dash.html" class="text-gray-700 hover:text-blue-600">Dashboard</a></li>
+      <li><a href="produit.html" class="text-gray-700 hover:text-blue-600">Produits</a></li>
+      <li><a href="mvmtStok.html" class="text-gray-700 hover:text-blue-600">Mouvements</a></li>
+      <li><a href="rapport.html" class="text-blue-600 font-semibold">Rapports</a></li>
+    </ul>
+  </nav> -->
+
+  <nav class="bg-white border-b shadow-md sticky top-0 z-[1000]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <!-- Logo -->
+        <div class="flex items-center">
+          <span class="text-xl font-bold text-blue-600">Mary 1000'S</span>
+        </div>
+
+        <!-- Menu hamburger mobile -->
+        <div class="lg:hidden">
+          <button id="menu-toggle" class="text-gray-600 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Menu items -->
+        <div id="menu" class="hidden lg:flex space-x-6">
+          <a href="dash.html" class="text-gray-700 hover:text-blue-600">Tableau de bord</a>
+          <a href="produit.html" class="text-gray-700 hover:text-blue-600">Produits</a>
+          <a href="mvmtStok.html" class="text-gray-700 hover:text-blue-600">Mouvements</a>
+          <a href="rapport.html" class="text-gray-700 hover:text-blue-600">Rapports</a>
+        </div>
+      </div>
+
+      <!-- Menu mobile (caché par défaut) -->
+      <div id="mobile-menu" class="lg:hidden hidden mt-4 space-y-2">
+        <a href="dash.html" class="block text-gray-700 hover:text-blue-600">Tableau de bord</a>
+        <a href="produit.html" class="block text-gray-700 hover:text-blue-600">Produits</a>
+        <a href="mvmtStok.html" class="block text-gray-700 hover:text-blue-600">Mouvements</a>
+        <a href="rapport.html" class="block text-gray-700 hover:text-blue-600">Rapports</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="p-6 max-w-6xl mx-auto">
+    <h1 class="text-2xl font-bold mb-6">Rapports de stock</h1>
+
+    <!-- Filtres -->
+    <form action="#" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6" id="rapport_form">
+      <input type="date" name="date1" id="date1" class="p-2 border border-gray-300 rounded" />
+      <input type="date" name="data2" id="date2" class="p-2 border border-gray-300 rounded" />
+      <select class="p-2 border border-gray-300 rounded" name="service" id="service">
+        <option value="">Tous les services</option>
+        <option value="cuisine">Cuisine</option>
+        <option value="bar">Bar</option>
+      </select>
+    </form>
+
+
+    <!-- Résumés -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8" id="visualiseur-rapport-totale">
+      <!-- <div class="bg-white p-4 rounded shadow">
+        <h2 class="text-sm font-medium text-gray-500">Entrées totales</h2>
+        <p class="text-xl font-bold text-green-600 mt-2">+ 580 unités</p>
+      </div>
+      <div class="bg-white p-4 rounded shadow">
+        <h2 class="text-sm font-medium text-gray-500">Sorties totales</h2>
+        <p class="text-xl font-bold text-red-600 mt-2">- 460 unités</p>
+      </div>
+      <div class="bg-white p-4 rounded shadow">
+        <h2 class="text-sm font-medium text-gray-500">Stock actuel (global)</h2>
+        <p class="text-xl font-bold text-blue-600 mt-2">120 unités</p>
+      </div> -->
+    </div>
+
+    <!-- Tableau de synthèse -->
+    <div class="bg-white rounded shadow overflow-hidden">
+      <table class="min-w-full">
+        <thead class="bg-gray-100 text-sm text-gray-700 font-semibold">
+          <tr>
+            <th class="p-4 text-left">Produit</th>
+            <th class="p-4 text-left">Entrées</th>
+            <th class="p-4 text-left">Sorties</th>
+            <th class="p-4 text-left">Stock actuel</th>
+          </tr>
+        </thead>
+        <tbody id="rappot_table">
+          <!-- Ajouter d'autres lignes selon les produits -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <button class="fixed bottom-6 right-6 p-4 bg-white rounded shadow" id="back-to-top"><i
+      class="ri-arrow-up-fill"></i></button>
+
+  <!-- pour le bouton bergeur -->
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    toggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    document.getElementById('back-to-top').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+  <script src="./ajax/dashcookies.js"></script>
+  <script src="./ajax/rapport.js" async></script>
+  <script src="./ajax/filtrer_rapport.js" async></script>
+
+</body>
+
+</html>

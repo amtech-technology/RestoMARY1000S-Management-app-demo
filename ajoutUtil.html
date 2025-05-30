@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ajouter un produit - MARY 1000'S</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="./RemixIcon_Fonts_v4.6.0/fonts/remixicon.css">
+
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+  <!-- <nav class="bg-white shadow px-6 py-4 flex justify-between items-center">
+    <div class="text-xl font-bold">MARY 1000'S</div>
+    <ul class="flex space-x-6">
+      <li><a href="dash.html" class="text-gray-700 hover:text-blue-600">Dashboard</a></li>
+      <li><a href="produit.html" class="text-blue-600 font-semibold">Produits</a></li>
+      <li><a href="mvmtStok.html" class="text-gray-700 hover:text-blue-600">Mouvements</a></li>
+      <li><a href="rapport.html" class="text-gray-700 hover:text-blue-600">Rapports</a></li>
+    </ul>
+  </nav> -->
+
+  <nav class="bg-white border-b shadow-md sticky top-0 z-[1000]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <!-- Logo -->
+        <div class="flex items-center">
+          <span class="text-xl font-bold text-blue-600">Mary 1000'S</span>
+        </div>
+
+        <!-- Menu hamburger mobile -->
+        <div class="lg:hidden">
+          <button id="menu-toggle" class="text-gray-600 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Menu items -->
+        <div id="menu" class="hidden lg:flex space-x-6">
+          <a href="dash.html" class="text-gray-700 hover:text-blue-600">Tableau de bord</a>
+          <a href="produit.html" class="text-gray-700 hover:text-blue-600">Produits</a>
+          <a href="mvmtStok.html" class="text-gray-700 hover:text-blue-600">Mouvements</a>
+          <a href="rapport.html" class="text-gray-700 hover:text-blue-600">Rapports</a>
+        </div>
+      </div>
+
+      <!-- Menu mobile (caché par défaut) -->
+      <div id="mobile-menu" class="lg:hidden hidden mt-4 space-y-2">
+        <a href="dash.html" class="block text-gray-700 hover:text-blue-600">Tableau de bord</a>
+        <a href="produit.html" class="block text-gray-700 hover:text-blue-600">Produits</a>
+        <a href="mvmtStok.html" class="block text-gray-700 hover:text-blue-600">Mouvements</a>
+        <a href="rapport.html" class="block text-gray-700 hover:text-blue-600">Rapports</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="p-6 max-w-xl mx-auto">
+    <h1 class="text-xl sm:text-2xl lg:text-3xl font-bold mb-4">Ajouter un nouveau utilisateur</h1>
+
+    <form action="#" method="POST" id="util_form" class="bg-white p-6 rounded shadow space-y-4">
+      <p id="visualizer_v" class="text-center"></p>
+      <div>
+        <label class="block text-sm font-medium">Nom de l'utilisateur</label>
+        <input type="text" name="nom" placeholder="Nom de l'utilisateur"
+          class="w-full border border-gray-300 px-3 py-2 rounded mt-1" />
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium">Email</label>
+        <input type="email" name="email" placeholder="adresse@mary100.com"
+          class="w-full border border-gray-300 px-3 py-2 rounded mt-1" />
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium">Rôle</label>
+        <select name="role" class="w-full border border-gray-300 px-3 py-2 rounded mt-1">
+          <option value="">-- Sélectionner --</option>
+          <option value="logisticienne">Logisticienne</option>
+          <option value="chef">Chef</option>
+        </select>
+      </div>
+
+      <div class="flex justify-between mt-6">
+        <a href="utilisateurs.html" class="text-gray-600 hover:underline">Annuler</a>
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+          Enregistrer le produit
+        </button>
+      </div>
+    </form>
+
+  </main>
+
+
+  <!-- pour le bouton bergeur -->
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    toggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+  <script src="./ajax/dashcookies.js"></script>
+  <script src="./ajax/ajouter_util.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mouvements de stock - MARY 1000'S</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="./RemixIcon_Fonts_v4.6.0/fonts/remixicon.css">
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+  <!-- <nav class="bg-white shadow px-6 py-4 flex justify-between items-center">
+    <div class="text-xl font-bold">MARY 1000'S</div>
+    <ul class="flex space-x-6">
+      <li><a href="dash.html" class="text-gray-700 hover:text-blue-600">Dashboard</a></li>
+      <li><a href="produit.html" class="text-gray-700 hover:text-blue-600">Produits</a></li>
+      <li><a href="mvmtStok.html" class="text-blue-600 font-semibold">Mouvements</a></li>
+      <li><a href="rapport.html" class="text-gray-700 hover:text-blue-600">Rapports</a></li>
+    </ul>
+  </nav> -->
+
+  <nav class="bg-white border-b shadow-md sticky top-0 z-[1000]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <!-- Logo -->
+        <div class="flex items-center">
+          <span class="text-xl font-bold text-blue-600">Mary 1000'S</span>
+        </div>
+
+        <!-- Menu hamburger mobile -->
+        <div class="lg:hidden">
+          <button id="menu-toggle" class="text-gray-600 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Menu items -->
+        <div id="menu" class="hidden lg:flex space-x-6">
+          <a href="dash.html" class="text-gray-700 hover:text-blue-600">Tableau de bord</a>
+          <a href="produit.html" class="text-gray-700 hover:text-blue-600">Produits</a>
+          <a href="mvmtStok.html" class="text-gray-700 hover:text-blue-600">Mouvements</a>
+          <a href="rapport.html" class="text-gray-700 hover:text-blue-600">Rapports</a>
+        </div>
+      </div>
+
+      <!-- Menu mobile (caché par défaut) -->
+      <div id="mobile-menu" class="lg:hidden hidden mt-4 space-y-2">
+        <a href="dash.html" class="block text-gray-700 hover:text-blue-600">Tableau de bord</a>
+        <a href="produit.html" class="block text-gray-700 hover:text-blue-600">Produits</a>
+        <a href="mvmtStok.html" class="block text-gray-700 hover:text-blue-600">Mouvements</a>
+        <a href="rapport.html" class="block text-gray-700 hover:text-blue-600">Rapports</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="p-6 max-w-6xl mx-auto">
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-2xl font-bold">Historique des mouvements</h1>
+      <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+        onclick="window.location.href='nouvMvmt.html'">+ Nouveau mouvement</button>
+    </div>
+
+    <div>
+      <form action="#" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4" id="filterMouv">
+        <input type="text" name="produit" id="filterMouvInput" placeholder="Rechercher un produit..."
+          class="p-2 border border-gray-300 rounded" />
+
+        <select class="p-2 border border-gray-300 rounded" name="type_mouv" id="filterMouvSelectType">
+          <option value="">Tous les types</option>
+          <option value="entree">Entrée</option>
+          <option value="sortie">Sortie</option>
+        </select>
+
+        <select class="p-2 border border-gray-300 rounded" name="service" id="filterMouvSelectService">
+          <option value="">Tous les services</option>
+          <option value="cuisine">Cuisine</option>
+          <option value="bar">Bar</option>
+        </select>
+      </form>
+    </div>
+
+    <!-- tableau mouvement de stock -->
+    <table class="min-w-full bg-white rounded shadow overflow-hidden">
+      <thead>
+        <tr class="bg-gray-100 text-left text-sm font-semibold text-gray-700">
+          <th class="p-4">Date</th>
+          <th class="p-4">Produit</th>
+          <th class="p-4">Type</th>
+          <th class="p-4">Quantité</th>
+          <th class="p-4">Service</th>
+          <th class="p-4">Responsable</th>
+          <th class="p-4">Action</th>
+        </tr>
+      </thead>
+      <tbody id="mouvementTable">
+        <!-- Ajouter plus de lignes selon les données -->
+      </tbody>
+    </table>
+  </main>
+
+  <button class="fixed bottom-6 right-6 p-4 bg-white rounded shadow" id="back-to-top"><i
+      class="ri-arrow-up-fill"></i></button>
+
+  <!-- pour le bouton bergeur -->
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    toggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    document.getElementById('back-to-top').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+  <script src="./ajax/dashcookies.js"></script>
+  <script src="./ajax/afficher_mouv.js" async></script>
+  <script src="./ajax/filtre_mouv.js" async></script>
+
+</body>
+
+</html>

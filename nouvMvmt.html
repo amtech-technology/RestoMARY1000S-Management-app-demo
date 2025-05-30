@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nouveau Mouvement - MARY 1000'S</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="./RemixIcon_Fonts_v4.6.0/fonts/remixicon.css">
+</head>
+
+<body class="bg-gray-100 text-gray-800 min-h-screen">
+
+  <!-- Barre de navigation -->
+  <!-- <nav class="bg-white shadow px-6 py-4 flex justify-between items-center">
+    <div class="text-xl font-bold">MARY 1000'S</div>
+    <ul class="flex space-x-6">
+      <li><a href="dash.html" class="text-gray-700 hover:text-blue-600">Dashboard</a></li>
+      <li><a href="produit.html" class="text-gray-700 hover:text-blue-600">Produits</a></li>
+      <li><a href="mvmtStok.html" class="text-blue-600 font-semibold">Mouvements</a></li>
+      <li><a href="rapport.html" class="text-gray-700 hover:text-blue-600">Rapports</a></li>
+    </ul>
+  </nav> -->
+  <nav class="bg-white border-b shadow-md sticky top-0 z-[1000]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <!-- Logo -->
+        <div class="flex items-center">
+          <span class="text-xl font-bold text-blue-600">Mary 1000'S</span>
+        </div>
+
+        <!-- Menu hamburger mobile -->
+        <div class="lg:hidden">
+          <button id="menu-toggle" class="text-gray-600 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Menu items -->
+        <div id="menu" class="hidden lg:flex space-x-6">
+          <a href="dash.html" class="text-gray-700 hover:text-blue-600">Tableau de bord</a>
+          <a href="produit.html" class="text-gray-700 hover:text-blue-600">Produits</a>
+          <a href="mvmtStok.html" class="text-gray-700 hover:text-blue-600">Mouvements</a>
+          <a href="rapport.html" class="text-gray-700 hover:text-blue-600">Rapports</a>
+        </div>
+      </div>
+
+      <!-- Menu mobile (caché par défaut) -->
+      <div id="mobile-menu" class="lg:hidden hidden mt-4 space-y-2">
+        <a href="dash.html" class="block text-gray-700 hover:text-blue-600">Tableau de bord</a>
+        <a href="produit.html" class="block text-gray-700 hover:text-blue-600">Produits</a>
+        <a href="mvmtStok.html" class="block text-gray-700 hover:text-blue-600">Mouvements</a>
+        <a href="rapport.html" class="block text-gray-700 hover:text-blue-600">Rapports</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenu principal -->
+  <main class="p-6 max-w-3xl mx-auto">
+    <h1 class="text-2xl font-bold mb-6">Nouveau Mouvement de Stock</h1>
+
+    <form action="#" method="POST" id="ajout_mouvement" class="bg-white shadow rounded-lg p-6 space-y-4">
+      <p class="text-center" id="visualizer"></p>
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Type de mouvement</label>
+        <select name="type"
+          class="w-full mt-1 px-4 py-2 border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500">
+          <option value="">-- Sélectionner --</option>
+          <option value="entrée">Entrée</option>
+          <option value="sortie">Sortie</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Produit</label>
+        <input type="text" name="produit" min="1" placeholder="Entrer le nom d'un produit"
+          class="w-full mt-1 px-4 py-2 border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500">
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Quantité</label>
+        <input type="number" name="quantite" min="1" placeholder="Entrer une quantité"
+          class="w-full mt-1 px-4 py-2 border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500">
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Service</label>
+        <select name="service"
+          class="w-full mt-1 px-4 py-2 border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500">
+          <option value="">-- Choisir un service --</option>
+          <option value="cuisine">Cuisine</option>
+          <option value="bar">Bar</option>
+          <!-- À remplacer dynamiquement -->
+        </select>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Résponsable</label>
+        <input type="text" name="responsable" min="1" placeholder="Le nom et titre du résponsable"
+          class="w-full mt-1 px-4 py-2 border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500">
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Date du mouvement</label>
+        <input type="date" name="date"
+          class="w-full mt-1 px-4 py-2 border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500">
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Observations <span
+            class="text-gray-500 italic">(Optionnel)</span></label>
+        <textarea name="observation" rows="3"
+          class="w-full mt-1 px-4 py-2 border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500"
+          placeholder="Notes sur ce mouvement..."></textarea>
+      </div>
+
+      <div class="flex justify-end">
+        <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
+          Enregistrer le mouvement
+        </button>
+      </div>
+    </form>
+  </main>
+
+
+  <!-- pour le bouton bergeur -->
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    toggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+  <script src="./ajax/dashcookies.js"></script>
+  <script src="./ajax/ajout_mouvement.js"></script>
+
+</body>
+
+</html>

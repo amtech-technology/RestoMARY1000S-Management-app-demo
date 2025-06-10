@@ -59,7 +59,7 @@ ksort($lineData); // Ensure line chart is sorted by date
 echo json_encode([
     "stock_total" => $totalStock,
     "produits_critiques" => $produitsCritiques,
-    "stock_bar" => $stockBar,
+    /* "stock_bar" => $stockBar, */
     "mouvements_jour" => $mouvementsDuJour,
     "chart_stock" => [$totalStock, $stockBar, $produitsCritiques],
     "chart_produits_bar" => [
@@ -71,4 +71,3 @@ echo json_encode([
         "data" => array_values($lineData)
     ]
 ]);
-

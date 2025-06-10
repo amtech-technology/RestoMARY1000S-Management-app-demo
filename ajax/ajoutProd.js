@@ -12,12 +12,14 @@ ajoutProdForm.addEventListener("submit", (e) => {
         let data = xhr.response;
         if (data == "success") {
           setTimeout(() => {
+             window.scrollTo({ top: 0, behavior: "smooth" });
             visualizer.innerHTML = "";
             ajoutProdForm.reset();
           }, 3000);
           visualizer.innerHTML = `<span class="text-green-600 text-center">Ajouté avec succès!</span>`;
         } else {
           setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
             visualizer.innerHTML = "";
             ajoutProdForm.reset();
           }, 3000);

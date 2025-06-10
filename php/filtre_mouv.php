@@ -30,6 +30,9 @@ if (!empty($service)) {
     $params[] = $service;
 }
 
+// Now add ORDER BY at the end
+$sql .= " ORDER BY date_mouvement DESC";
+
 $query = $pdo->prepare($sql);
 $query->execute($params);
 

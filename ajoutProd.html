@@ -83,10 +83,19 @@
           <option value="bar">Bar</option>
         </select>
       </div>
-
       <div>
-        <label class="block text-sm font-medium">Seuil minimum (alerte)</label>
-        <input type="number" name="seuil" placeholder="Ex: 10" min="0"
+        <label class="block text-sm font-medium text-gray-700">Prix d'Achat</label>
+        <input type="number" name="buy-price" min="1" placeholder="Entrer un prix d'achat"
+          class="w-full mt-1 px-4 py-2 border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500">
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Prix de Vente</label>
+        <input type="number" name="sell-price" min="1" placeholder="Entrer un prix de vente"
+          class="w-full mt-1 px-4 py-2 border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500">
+      </div>
+      <div>
+        <label class="block text-sm font-medium">Quantité</label>
+        <input type="number" name="quantite" placeholder="Ex: 10" min="0"
           class="w-full border border-gray-300 px-3 py-2 rounded mt-1" />
       </div>
 

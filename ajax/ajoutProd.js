@@ -16,7 +16,8 @@ ajoutProdForm.addEventListener("submit", (e) => {
             visualizer.innerHTML = "";
             ajoutProdForm.reset();
           }, 3000);
-          visualizer.innerHTML = `<span class="text-green-600 text-center">Ajouté avec succès!</span>`;
+         /*  visualizer.innerHTML = `<span class="text-green-600 text-center">Ajouté avec succès!</span>`; */
+         window.location.href = "./produit.html";
         } else {
           setTimeout(() => {
             window.scrollTo({ top: 0, behavior: "smooth" });

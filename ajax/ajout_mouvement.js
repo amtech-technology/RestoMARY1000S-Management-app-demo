@@ -16,7 +16,8 @@ ajout_mouvementForm.addEventListener("submit", (e) => {
             visualizer.innerHTML = "";
             ajout_mouvementForm.reset();
           }, 3000);
-          visualizer.innerHTML = `<span class="text-center text-green-700">Le mouvement a été ajouté avec succès!</span>`;
+          /*   visualizer.innerHTML = `<span class="text-center text-green-700">Le mouvement a été ajouté avec succès!</span>`; */
+          window.location.href = "./mouvStok.html";
           ajout_mouvementForm.reset();
           window.scrollTo({ top: 0, behavior: "smooth" });
         } else {

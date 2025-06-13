@@ -58,7 +58,7 @@
   </nav>
 
   <main class="p-6 max-w-6xl mx-auto">
-    <h1 class="text-2xl font-bold mb-6">Rapports de stock</h1>
+    <h1 class="text-2xl font-bold mb-6">Rapports de stock de mouvement</h1>
 
     <!-- Filtres -->
     <form action="#" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6" id="rapport_form">
@@ -66,11 +66,13 @@
       <input type="date" name="data2" id="date2" class="p-2 border border-gray-300 rounded" />
       <select class="p-2 border border-gray-300 rounded" name="service" id="service">
         <option value="">Tous les services</option>
+        <option value="service-generale">Service Général</option>
         <option value="cuisine">Cuisine</option>
         <option value="bar">Bar</option>
+        <option value="barista">Barista</option>
+        <option value="patisserie">Pâtisserie</option>
       </select>
     </form>
-
 
     <!-- Résumés -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8" id="visualiseur-rapport-totale">

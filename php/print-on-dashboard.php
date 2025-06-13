@@ -28,8 +28,30 @@ $today = date('Y-m-d');
 $barData = [];
 $lineData = [];
 
+$sqlCritique = "SELECT * FROM produit WHERE quantite <= 10";
+$queryCritique = $pdo->prepare($sqlCritique);
+$queryCritique->execute();
+$resultatCritique = $queryCritique->fetchAll(PDO::FETCH_ASSOC);
+
+if (count($resultatCritique) > 0) {
+    foreach ($resultatCritique as $rowCritique) {
+        $quantiteCritique++;
+        $totalStock++;
+    }
+}
+
+$sqlTotal = "SELECT * FROM produit";
+$queryTotal = $pdo->prepare($sqlCritique);
+$queryTotal->execute();
+$resultatTotal = $queryTotal->fetchAll(PDO::FETCH_ASSOC);
+
+if (count($resultatTotal) > 0) {
+    foreach ($resultatTotal as $rowTotal) {
+        $totalStock++;
+    }
+}
+
 foreach ($res as $row) {
-    $totalStock++;
 
     // Count critical stock
     if ($row['quantite'] <= 5) {
@@ -44,10 +66,11 @@ foreach ($res as $row) {
     }
 
     // Count today's mouvements
-    $dateMouvement = substr($row['date_mouvement'], 0, 10);
+    $dateMouvement = isset($row['date_mouvement']) ? substr($row['date_mouvement'], 0, 10) : null;
     if ($dateMouvement === $today) {
         $mouvementsDuJour++;
     }
+
 
     // Count total quantity per day for line chart
     $lineData[$dateMouvement] = ($lineData[$dateMouvement] ?? 0) + ($row['quantite'] ?? 0);
@@ -58,7 +81,7 @@ ksort($lineData); // Ensure line chart is sorted by date
 
 echo json_encode([
     "stock_total" => $totalStock,
-    "produits_critiques" => $produitsCritiques,
+    "produits_critiques" => $quantiteCritique,
     /* "stock_bar" => $stockBar, */
     "mouvements_jour" => $mouvementsDuJour,
     "chart_stock" => [$totalStock, $stockBar, $produitsCritiques],

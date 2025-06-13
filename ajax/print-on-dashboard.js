@@ -13,7 +13,8 @@ document.addEventListener("DOMContentLoaded", function () {
         cards[0].textContent = data.stock_total ?? "0";
         cards[1].textContent = data.produits_critiques ?? "0";
         /* cards[2].textContent = data.stock_bar ?? "0"; */
-        cards[2].textContent = data.mouvements_jour ?? "0";
+        cards[3].textContent = data.mouvements_jour ?? "0";
+        /*         console.log(cards[1]); */
       }
 
       // Stock Chart

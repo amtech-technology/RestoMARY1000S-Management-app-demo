@@ -26,7 +26,8 @@
         <!-- <a href="" class="block px-4 py-2 rounded hover:bg-gray-200"> Produits Bar</a> -->
         <a href="rapport.html" class="block px-4 py-2 rounded hover:bg-gray-200"><i class="ri-bar-chart-fill"></i>
           Rapports</a>
-        <a href="utilisateurs.html" class="block px-4 py-2 rounded hover:bg-gray-200"><i class="ri-group-line"></i>
+        <a href="utilisateurs.html" class="block px-4 py-2 rounded hover:bg-gray-200" id="util-checker"><i
+            class="ri-group-line"></i>
           Utilisateurs</a>
       </nav>
     </aside>
@@ -48,10 +49,12 @@
             <h2 class="text-2xl font-bold text-blue-600"></h2>
           </div>
         </a>
-        <div class="bg-white p-6 rounded-lg shadow">
-          <p class="text-gray-600">Produits critiques</p>
-          <h2 class="text-2xl font-bold text-red-600"></h2>
-        </div>
+        <a href="./produit-critique.html">
+          <div class="bg-white p-6 rounded-lg shadow">
+            <p class="text-gray-600">Produits critiques</p>
+            <h2 class="text-2xl font-bold text-red-600"></h2>
+          </div>
+        </a>
         <div class="bg-white p-6 rounded-lg shadow" style="display: none;">
           <p class="text-gray-600">Stock bar</p>
           <h2 class="text-2xl font-bold text-green-600"></h2>
@@ -86,6 +89,7 @@
 
   <script src="./ajax/dashcookies.js"></script>
   <script src="./ajax/print-on-dashboard.js"></script>
+  <script src="./ajax/util-checker.js"></script>
 
 </body>
 

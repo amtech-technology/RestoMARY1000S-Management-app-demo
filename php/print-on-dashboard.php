@@ -36,20 +36,16 @@ $resultatCritique = $queryCritique->fetchAll(PDO::FETCH_ASSOC);
 if (count($resultatCritique) > 0) {
     foreach ($resultatCritique as $rowCritique) {
         $quantiteCritique++;
-        $totalStock++;
     }
 }
 
-$sqlTotal = "SELECT * FROM produit";
-$queryTotal = $pdo->prepare($sqlCritique);
+$sqlTotal = "SELECT COUNT(*) as total FROM produit";
+$queryTotal = $pdo->prepare($sqlTotal); // ✅ use sqlTotal here
 $queryTotal->execute();
-$resultatTotal = $queryTotal->fetchAll(PDO::FETCH_ASSOC);
+$resultatTotal = $queryTotal->fetch(PDO::FETCH_ASSOC);
 
-if (count($resultatTotal) > 0) {
-    foreach ($resultatTotal as $rowTotal) {
-        $totalStock++;
-    }
-}
+$totalStock = $resultatTotal['total'] ?? 0;
+
 
 foreach ($res as $row) {
 

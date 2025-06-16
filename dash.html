@@ -9,9 +9,11 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="./RemixIcon_Fonts_v4.6.0/fonts/remixicon.css">
 
+
 </head>
 
 <body class="bg-gray-100">
+
   <!-- Sidebar -->
   <div class="flex min-h-screen">
     <aside class="w-64 bg-white shadow-lg p-4 h-screen sticky top-0 z-[1000]">
@@ -26,8 +28,8 @@
         <!-- <a href="" class="block px-4 py-2 rounded hover:bg-gray-200"> Produits Bar</a> -->
         <a href="rapport.html" class="block px-4 py-2 rounded hover:bg-gray-200"><i class="ri-bar-chart-fill"></i>
           Rapports</a>
-        <a href="utilisateurs.html" class="block px-4 py-2 rounded hover:bg-gray-200" id="util-checker"><i
-            class="ri-group-line"></i>
+        <a href="utilisateurs.html" class="block px-4 py-2 rounded hover:bg-gray-200" id="util-checker"
+          style="display: none;"><i class="ri-group-line"></i>
           Utilisateurs</a>
       </nav>
     </aside>
@@ -41,7 +43,7 @@
       </header>
 
       <!-- Statistiques -->
-      <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 " id="dashbaord-cards">
+      <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 " id="dashbaord-cards">
         <!-- grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 -->
         <a href="./produit.html">
           <div class="bg-white p-6 rounded-lg shadow ">
@@ -89,7 +91,7 @@
 
   <script src="./ajax/dashcookies.js"></script>
   <script src="./ajax/print-on-dashboard.js"></script>
-  <script src="./ajax/util-checker.js"></script>
+  <script src="./ajax/util-checker.js" async></script>
 
 </body>
 

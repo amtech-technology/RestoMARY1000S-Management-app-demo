@@ -23,12 +23,12 @@ document.addEventListener("DOMContentLoaded", function () {
         new Chart(stockCtx, {
           type: "bar",
           data: {
-            labels: ["Stock Total", "Stock Bar", "Produits Critiques"],
+            labels: ["Stock Total", "Produits Critiques"],
             datasets: [
               {
                 label: "État du stock",
                 data: data.chart_stock,
-                backgroundColor: ["#3b82f6", "#10b981", "#ef4444"],
+                backgroundColor: ["#3b82f6", "#ef4444"],
               },
             ],
           },

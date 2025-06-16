@@ -11,13 +11,23 @@ $sell_price = htmlspecialchars($_POST['sell-price']);
 $buy_price = htmlspecialchars($_POST['buy-price']);
 
 if (!empty($nom_du_produit) && !empty($unite_du_produit) && !empty($service) && !empty($seuil_minimum)) {
-    $sql = "INSERT INTO produit(`unique_id`,`nom_produit`,`unite_produit`,`service`,`quantite`,`prix_achat`,`prix_vente`) VALUES(?,?,?,?,?,?,?)";
-    $query = $pdo->prepare($sql);
-    $execution = $query->execute([$unique_id, $nom_du_produit, $unite_du_produit, $service, $seuil_minimum, $buy_price, $sell_price]);
-    if ($execution) {
-        echo "success";
+
+    $sql_test = "SELECT * FROM produit WHERE nom_produit = ?";
+    $query_test = $pdo->prepare($sql_test);
+    $query_test->execute([$nom_du_produit]);
+
+    $res = $query_test->fetchAll(PDO::FETCH_ASSOC);
+    if (count($res) > 0) {
+        echo "ce produit existe déjà";
     } else {
-        echo "L'insertion a echoué!";
+        $sql = "INSERT INTO produit(`unique_id`,`nom_produit`,`unite_produit`,`service`,`quantite`,`prix_achat`,`prix_vente`) VALUES(?,?,?,?,?,?,?)";
+        $query = $pdo->prepare($sql);
+        $execution = $query->execute([$unique_id, $nom_du_produit, $unite_du_produit, $service, $seuil_minimum, $buy_price, $sell_price]);
+        if ($execution) {
+            echo "success";
+        } else {
+            echo "L'insertion a echoué!";
+        }
     }
 } else {
     echo "Remplissez tout les champs s'il vous plaît";

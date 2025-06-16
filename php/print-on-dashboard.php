@@ -80,7 +80,7 @@ echo json_encode([
     "produits_critiques" => $quantiteCritique,
     /* "stock_bar" => $stockBar, */
     "mouvements_jour" => $mouvementsDuJour,
-    "chart_stock" => [$totalStock, $stockBar, $produitsCritiques],
+    "chart_stock" => [$totalStock, $produitsCritiques],
     "chart_produits_bar" => [
         "labels" => array_keys($barData),
         "data" => array_values($barData)

@@ -1,5 +1,6 @@
 <?php
 //////////////////////////////////////////////////////////////////////////////
+session_start();
 require_once("./config.php");
 
 $sql = "SELECT * FROM mouvement ORDER BY id DESC";
@@ -9,21 +10,55 @@ $results = $query->fetchAll(PDO::FETCH_ASSOC);
 if (count($results) > 0) {
     foreach ($results as $row) {
 
-        ($row['type_mouvement'] == "entrée") ? $movType = "<span class='text-green-700 font-semibold'>{$row['type_mouvement']}</span>" : $movType = "<span class='text-red-700 font-semibold'>{$row['type_mouvement']}</span>";
+        $user_unique_id = $_SESSION['user_uniqueID'];
 
-        echo '
-            <tr class="border-t">
-                <td class="p-4">' . $row['date_mouvement'] . '</td>
-                <td class="p-4">' . $row['produit'] . '</td>
-                <td class="p-4 text-green-600 font-semibold">' . $movType . '</td>
-                <td class="p-4">' . $row['quantite'] . '</td>
-                <td class="p-4">' . $row['service'] . '</td>
-                <td class="p-4">' . $row['responsable'] . '</td>
-                <td class="p-4">
-                    <a href="php/delete-mouv.php?id=' . $row['id'] . '"><button class="bg-red-700 text-white px-3 py-1 rounded hover:bg-red-900">Supprimer</button></a>
-                </td>
-            </tr>
-        ';
+        $sql_admin = "SELECT * FROM utilisateur WHERE unique_id = ?";
+        $query_admin = $pdo->prepare($sql_admin);
+        $query_admin->execute([$user_unique_id]);
+        $res_admin = $query_admin->fetchAll(PDO::FETCH_ASSOC);
+
+        if (count($res_admin) > 0) {
+            foreach ($res_admin as $row_admin) {
+
+                if ($row_admin['role_utilisateur'] == "Admin") {
+
+                    ($row['type_mouvement'] == "entrée") ? $movType = "<span class='text-green-700 font-semibold'>{$row['type_mouvement']}</span>" : $movType = "<span class='text-red-700 font-semibold'>{$row['type_mouvement']}</span>";
+
+                    echo '
+                        <tr class="border-t">
+                            <td class="p-4">' . $row['date_mouvement'] . '</td>
+                            <td class="p-4">' . $row['produit'] . '</td>
+                            <td class="p-4 text-green-600 font-semibold">' . $movType . '</td>
+                            <td class="p-4">' . $row['quantite'] . '</td>
+                            <td class="p-4">' . $row['service'] . '</td>
+                            <td class="p-4">' . $row['responsable'] . '</td>
+                            <td class="p-4">
+                                <a href="php/delete-mouv.php?id=' . $row['id'] . '" hidden><button class="bg-red-700 text-white px-3 py-1 rounded hover:bg-red-900">Supprimer</button></a>
+                            </td>
+                        </tr>
+                    ';
+                } else {
+                    ($row['type_mouvement'] == "entrée") ? $movType = "<span class='text-green-700 font-semibold'>{$row['type_mouvement']}</span>" : $movType = "<span class='text-red-700 font-semibold'>{$row['type_mouvement']}</span>";
+
+                    echo '
+                        <tr class="border-t">
+                            <td class="p-4">' . $row['date_mouvement'] . '</td>
+                            <td class="p-4">' . $row['produit'] . '</td>
+                            <td class="p-4 text-green-600 font-semibold">' . $movType . '</td>
+                            <td class="p-4">' . $row['quantite'] . '</td>
+                            <td class="p-4">' . $row['service'] . '</td>
+                            <td class="p-4">' . $row['responsable'] . '</td>
+                            <td class="p-4">
+                                <a href="php/delete-mouv.php?id=' . $row['id'] . '"><button class="bg-red-700 text-white px-3 py-1 rounded hover:bg-red-900">Supprimer</button></a>
+                            </td>
+                        </tr>
+                    ';
+                }
+            }
+        }
+
+
+        
     }
 } else {
     echo "<span class='text-gray-700 font-bold'>Pas de données disponible</span>";
